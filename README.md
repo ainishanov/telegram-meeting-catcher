@@ -69,6 +69,16 @@ npm run listen -- --dry-run
 
 Only remove `--dry-run` after the caught events look right.
 
+## Review Flow
+
+Uncertain events are held for review instead of being created automatically.
+
+```bash
+npm run review
+npm run confirm -- <review-id>
+npm run skip -- <review-id>
+```
+
 ## Product Promise
 
 Less copying. Fewer missed calls. One calendar that stays current.

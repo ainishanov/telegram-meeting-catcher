@@ -41,5 +41,25 @@ npm run setup:telegram
 npm run setup:google
 npm run doctor
 npm run listen -- --dry-run
+npm run review
+npm run confirm -- <review-id>
+npm run skip -- <review-id>
 npm run listen
+```
+
+## Review Queue
+
+Low-confidence but plausible meetings are written to local review state. They do
+not create calendar events until you confirm them.
+
+```bash
+npm run review
+npm run confirm -- a1b2c3d4
+npm run skip -- a1b2c3d4
+```
+
+Use `--dry-run` to test confirmation without creating the Google Calendar event:
+
+```bash
+node src/index.mjs confirm a1b2c3d4 --dry-run
 ```
