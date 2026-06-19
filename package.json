@@ -3,6 +3,24 @@
   "version": "0.1.0",
   "private": false,
   "description": "Catch Telegram meeting plans and turn them into calendar events.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ainishanov/telegram-meeting-catcher.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ainishanov/telegram-meeting-catcher/issues"
+  },
+  "homepage": "https://github.com/ainishanov/telegram-meeting-catcher#readme",
+  "keywords": [
+    "telegram",
+    "calendar",
+    "google-calendar",
+    "mtproto",
+    "automation",
+    "ai-agent",
+    "productivity"
+  ],
   "type": "module",
   "bin": {
     "telegram-meeting-catcher": "src/index.mjs"

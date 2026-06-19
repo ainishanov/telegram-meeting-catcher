@@ -46,6 +46,12 @@ Start with:
 
 See [docs/PRIVACY.md](docs/PRIVACY.md).
 
+## Setup Guides
+
+- [Telegram session setup](docs/SESSION_SETUP.md)
+- [Runbook](docs/RUNBOOK.md)
+- [Security policy](SECURITY.md)
+
 ## Environment
 
 ```bash
@@ -86,3 +92,7 @@ with the large text: **Catch Meetings Before They Disappear**.
 
 Early public scaffold. The core extraction and calendar adapter are intentionally
 small so the trust boundary is easy to audit.
+
+## License
+
+MIT
