@@ -1,11 +1,11 @@
 {
-  "name": "telegram-ambient-tasks",
+  "name": "telegram-meeting-catcher",
   "version": "0.1.0",
   "private": false,
-  "description": "Turn Telegram messages into calendar events and tasks.",
+  "description": "Catch Telegram meeting plans and turn them into calendar events.",
   "type": "module",
   "bin": {
-    "telegram-ambient-tasks": "src/index.mjs"
+    "telegram-meeting-catcher": "src/index.mjs"
   },
   "scripts": {
     "demo": "node src/index.mjs --demo",
@@ -22,4 +22,3 @@
     "node": ">=20"
   }
 }
-

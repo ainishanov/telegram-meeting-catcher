@@ -23,7 +23,7 @@ Use dry-run until the audit output matches your expectations.
 
 1. Create a Telegram API app at `my.telegram.org`.
 2. Generate a `TG_SESSION_STRING` locally.
-3. Configure `TAT_ALLOWED_CHATS`.
+3. Configure `TMC_ALLOWED_CHATS`.
 4. Connect Google Calendar OAuth.
 5. Run `npm run listen -- --dry-run`.
 6. Remove `--dry-run` only after review state is clean.
@@ -36,4 +36,3 @@ npm run check
 npm run listen -- --dry-run
 npm run listen
 ```
-

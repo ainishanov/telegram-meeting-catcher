@@ -1,6 +1,6 @@
 # Privacy Model
 
-Telegram Ambient Tasks is designed for whitelisted chats, local state, and
+Telegram Meeting Catcher is designed for whitelisted chats, local state, and
 confirmation-first automation.
 
 ## Defaults
@@ -27,4 +27,3 @@ Never commit:
 The full user-account listener should be an advanced self-hosted mode until the
 product has a strong trust layer: encrypted sessions, clear device revocation
 instructions, audit logs, chat allowlists, and OAuth verification.
-

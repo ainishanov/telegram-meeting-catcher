@@ -31,7 +31,7 @@ export function buildGoogleEvent(event, config) {
   const body = {
     summary: event.summary,
     description: [
-      'Created by Telegram Ambient Tasks.',
+      'Created by Telegram Meeting Catcher.',
       event.sourceChat ? `Chat: ${event.sourceChat}` : '',
       event.sourceMessageIds?.length ? `Messages: ${event.sourceMessageIds.join(', ')}` : '',
       event.reason ? `Reason: ${event.reason}` : '',
@@ -42,7 +42,7 @@ export function buildGoogleEvent(event, config) {
     end: { dateTime: end, timeZone: config.timezone },
     extendedProperties: {
       private: {
-        telegramAmbientTasksSource: event.sourceId || '',
+        telegramMeetingCatcherSource: event.sourceId || '',
       },
     },
   };
@@ -73,4 +73,3 @@ function addMinutes(localDateTime, minutes) {
   date.setUTCMinutes(date.getUTCMinutes() + Number(minutes || 45));
   return date.toISOString().slice(0, 19);
 }
-

@@ -9,7 +9,7 @@ export async function listenTelegram(config, onMessages) {
     throw new Error('TG_API_ID, TG_API_HASH and TG_SESSION_STRING are required for --listen');
   }
   if (!config.allowedChats.size) {
-    throw new Error('Set TAT_ALLOWED_CHATS before listening to Telegram');
+    throw new Error('Set TMC_ALLOWED_CHATS before listening to Telegram');
   }
 
   const client = new TelegramClient(
@@ -43,4 +43,3 @@ export async function listenTelegram(config, onMessages) {
   console.log(JSON.stringify({ type: 'listener_started', allowedChats: [...config.allowedChats] }));
   return client;
 }
-

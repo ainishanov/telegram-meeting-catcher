@@ -1,14 +1,15 @@
-# Telegram Ambient Tasks
+# Telegram Meeting Catcher
 
-**Telegram meetings become calendar events.**
+**Never miss a meeting buried in Telegram.**
 
-Telegram Ambient Tasks watches selected Telegram chats and turns clear meeting
-messages into Google Calendar events. You keep chatting as usual. The calendar
+Telegram Meeting Catcher watches selected Telegram chats and turns clear meeting
+plans into Google Calendar events. You keep chatting as usual. The calendar
 fills itself.
 
 ## Why It Exists
 
-Important plans get buried in Telegram. This catches them before you forget.
+Important meeting plans get buried in Telegram. This catches them before you
+forget.
 
 ## What It Does
 
@@ -56,7 +57,7 @@ Required for real Telegram listening:
 - `TG_API_ID`
 - `TG_API_HASH`
 - `TG_SESSION_STRING`
-- `TAT_ALLOWED_CHATS`
+- `TMC_ALLOWED_CHATS`
 
 Required for calendar creation:
 
@@ -72,17 +73,16 @@ Optional AI fallback:
 
 ## Public Page Copy
 
-Headline: **Your Telegram plans write themselves down.**
+Headline: **Never miss a meeting buried in Telegram.**
 
 Core description: **Telegram meetings become calendar events.**
 
-CTA: **Create Event From Message**
+CTA: **Catch Meeting From Chat**
 
 OG image idea: a Telegram chat on the left, a clean calendar event on the right,
-with the large text: **Never Miss A Telegram Plan**.
+with the large text: **Catch Meetings Before They Disappear**.
 
 ## Status
 
 Early public scaffold. The core extraction and calendar adapter are intentionally
 small so the trust boundary is easy to audit.
-

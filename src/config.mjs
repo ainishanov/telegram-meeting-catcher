@@ -19,13 +19,13 @@ function numberEnv(name, fallback, min, max) {
 
 export function loadConfig() {
   return {
-    timezone: process.env.TAT_TIMEZONE || 'Europe/Moscow',
-    stateDir: process.env.TAT_STATE_DIR || 'data',
-    defaultDurationMinutes: numberEnv('TAT_DEFAULT_DURATION_MINUTES', 45, 10, 360),
-    autoCreateMinConfidence: numberEnv('TAT_AUTO_CREATE_MIN_CONFIDENCE', 0.82, 0, 1),
-    reviewMinConfidence: numberEnv('TAT_REVIEW_MIN_CONFIDENCE', 0.55, 0, 1),
-    allowedChats: new Set(readList(process.env.TAT_ALLOWED_CHATS).map(normalizeChatKey)),
-    ignoredChats: new Set(readList(process.env.TAT_IGNORED_CHATS).map(normalizeChatKey)),
+    timezone: process.env.TMC_TIMEZONE || 'Europe/Moscow',
+    stateDir: process.env.TMC_STATE_DIR || 'data',
+    defaultDurationMinutes: numberEnv('TMC_DEFAULT_DURATION_MINUTES', 45, 10, 360),
+    autoCreateMinConfidence: numberEnv('TMC_AUTO_CREATE_MIN_CONFIDENCE', 0.82, 0, 1),
+    reviewMinConfidence: numberEnv('TMC_REVIEW_MIN_CONFIDENCE', 0.55, 0, 1),
+    allowedChats: new Set(readList(process.env.TMC_ALLOWED_CHATS).map(normalizeChatKey)),
+    ignoredChats: new Set(readList(process.env.TMC_IGNORED_CHATS).map(normalizeChatKey)),
     telegram: {
       apiId: Number.parseInt(process.env.TG_API_ID || '0', 10),
       apiHash: process.env.TG_API_HASH || '',
