@@ -6,8 +6,8 @@ Goal: make the repo easy to understand, safe to try, and worth starring.
 
 Telegram meetings become calendar events.
 
-Use this message everywhere: README, GitHub description, social preview, launch
-posts, and demo captions.
+Use this message everywhere: README, GitHub description, social preview, and
+launch posts.
 
 ## GitHub Checklist
 
@@ -51,6 +51,6 @@ Repo: https://github.com/ainishanov/telegram-meeting-catcher
 - One-click personal cloud deploy.
 - Calendar event preview UI.
 - More extraction tests from real anonymized examples.
-- Short demo video.
+- Provider-specific deploy templates.
 
 The repo should sell one outcome first: fewer missed meetings.

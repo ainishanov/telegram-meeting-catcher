@@ -19,7 +19,10 @@
     "mtproto",
     "automation",
     "ai-agent",
-    "productivity"
+    "productivity",
+    "self-hosted",
+    "telegram-mtproto",
+    "calendar-automation"
   ],
   "type": "module",
   "bin": {
@@ -37,7 +40,7 @@
     "setup:google": "node scripts/setup-google.mjs",
     "doctor": "node scripts/doctor.mjs",
     "doctor:offline": "node scripts/doctor.mjs --offline",
-    "check": "node --check src/index.mjs && node --check src/config.mjs && node --check src/state.mjs && node --check src/events.mjs && node --check src/review.mjs && node --check src/parser/deterministic.mjs && node --check src/parser/llm.mjs && node --check src/adapters/google-calendar.mjs && node --check src/adapters/telegram-mtproto.mjs && node --check scripts/env-file.mjs && node --check scripts/setup-telegram.mjs && node --check scripts/setup-google.mjs && node --check scripts/doctor.mjs && node scripts/test-parser.mjs && node scripts/test-review.mjs",
+    "check": "node --check src/index.mjs && node --check src/config.mjs && node --check src/state.mjs && node --check src/events.mjs && node --check src/review.mjs && node --check src/parser/deterministic.mjs && node --check src/parser/llm.mjs && node --check src/adapters/google-calendar.mjs && node --check src/adapters/telegram-mtproto.mjs && node --check scripts/env-file.mjs && node --check scripts/setup-telegram.mjs && node --check scripts/setup-google.mjs && node --check scripts/doctor.mjs && node --check scripts/test-examples.mjs && node scripts/test-parser.mjs && node scripts/test-review.mjs && node scripts/test-examples.mjs",
     "test": "node scripts/test-parser.mjs"
   },
   "dependencies": {

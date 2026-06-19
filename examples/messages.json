@@ -19,6 +19,54 @@
     "from": "channel",
     "text": "New article: ten calendar tools you should try",
     "date": "2026-06-19T12:10:00+03:00"
+  },
+  {
+    "id": 104,
+    "chat": "Founder Chat",
+    "from": "alex",
+    "text": "Let's meet Thursday at 16:00 to review the launch plan",
+    "date": "2026-06-19T12:15:00+03:00"
+  },
+  {
+    "id": 105,
+    "chat": "Sales",
+    "from": "maria",
+    "text": "Can we move the call to Friday 18:00?",
+    "date": "2026-06-19T12:20:00+03:00"
+  },
+  {
+    "id": 106,
+    "chat": "Ops",
+    "from": "igor",
+    "text": "Google Meet on 24/06 at 09:30 for partner onboarding",
+    "date": "2026-06-19T12:25:00+03:00"
+  },
+  {
+    "id": 107,
+    "chat": "Personal",
+    "from": "kate",
+    "text": "Doctor appointment 30/06 at 10:00",
+    "date": "2026-06-19T12:30:00+03:00"
+  },
+  {
+    "id": 108,
+    "chat": "Team",
+    "from": "sam",
+    "text": "Zoom call today at 17:00 before the release",
+    "date": "2026-06-19T12:35:00+03:00"
+  },
+  {
+    "id": 109,
+    "chat": "Team",
+    "from": "sam",
+    "text": "Let's sync next week when everyone is free",
+    "date": "2026-06-19T12:40:00+03:00"
+  },
+  {
+    "id": 110,
+    "chat": "Noise",
+    "from": "channel",
+    "text": "Budget review notes are in the doc",
+    "date": "2026-06-19T12:45:00+03:00"
   }
 ]
-

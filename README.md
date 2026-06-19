@@ -6,6 +6,8 @@
 
 **Never miss a meeting buried in Telegram.**
 
+Private Telegram meetings become calendar events.
+
 Telegram Meeting Catcher watches selected Telegram chats and turns clear meeting
 plans into Google Calendar events. You keep chatting as usual. The calendar
 fills itself.
@@ -32,6 +34,13 @@ forget.
 - Dedupes by Telegram source message.
 - Runs deterministic parsing before optional AI fallback.
 
+## Why This Is Different
+
+- Not a shared hosted listener for your private Telegram account.
+- Not a bot that needs to be invited into every chat.
+- Not a calendar assistant that reads everything by default.
+- Self-hosted first, with dry-run before any calendar write.
+
 ## Example
 
 Input message:
@@ -52,7 +61,7 @@ Dry-run output:
 }
 ```
 
-## Quick Demo
+## Try Without Credentials
 
 ```bash
 npm install
@@ -87,6 +96,13 @@ docker compose up --build
 The Docker command starts in dry-run mode. Remove `--dry-run` from
 `docker-compose.yml` only after `npm run scan -- --limit 50` catches the right
 events.
+
+## Deploy
+
+Run it as a private personal worker on a VPS or cloud platform that supports
+Docker.
+
+See [docs/DEPLOY.md](docs/DEPLOY.md).
 
 ## Review Flow
 
@@ -129,8 +145,11 @@ See [docs/PRIVACY.md](docs/PRIVACY.md).
 
 - [Telegram session setup](docs/SESSION_SETUP.md)
 - [Runbook](docs/RUNBOOK.md)
+- [Deploy guide](docs/DEPLOY.md)
 - [Personal cloud architecture](docs/PERSONAL_CLOUD.md)
 - [Launch plan](docs/LAUNCH_PLAN.md)
+- [Launch posts](docs/LAUNCH_POSTS.md)
+- [Roadmap](docs/ROADMAP.md)
 - [Security policy](SECURITY.md)
 
 ## Environment
@@ -168,10 +187,12 @@ CTA: **Catch Meeting From Chat**
 
 Social preview: [assets/og-image.png](assets/og-image.png)
 
+Search phrase: `Telegram to Google Calendar, self-hosted Telegram meeting automation`.
+
 ## Status
 
-Early public scaffold. The core extraction and calendar adapter are intentionally
-small so the trust boundary is easy to audit.
+Public v0.1.0. The core extraction and calendar adapter are intentionally small
+so the trust boundary is easy to audit.
 
 ## License
 
