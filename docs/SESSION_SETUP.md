@@ -14,47 +14,14 @@ That is powerful and sensitive. Start with a test account if you are unsure.
 
 ## 2. Generate A Session String
 
-Install dependencies first:
+Use the setup wizard:
 
 ```bash
 npm install
+npm run setup:telegram
 ```
 
-Then run a small one-off script in a private local shell:
-
-```bash
-node --input-type=module
-```
-
-Paste this:
-
-```js
-import "dotenv/config";
-import readline from "node:readline/promises";
-import { stdin as input, stdout as output } from "node:process";
-import { TelegramClient } from "telegram";
-import { StringSession } from "telegram/sessions/index.js";
-
-const apiId = Number(process.env.TG_API_ID);
-const apiHash = process.env.TG_API_HASH;
-const rl = readline.createInterface({ input, output });
-const client = new TelegramClient(new StringSession(""), apiId, apiHash, {
-  connectionRetries: 3,
-});
-
-await client.start({
-  phoneNumber: () => rl.question("Phone: "),
-  password: () => rl.question("2FA password: "),
-  phoneCode: () => rl.question("Code: "),
-  onError: (error) => console.error(error),
-});
-
-console.log(client.session.save());
-rl.close();
-await client.disconnect();
-```
-
-Put the printed string into `.env` as `TG_SESSION_STRING`.
+The script writes `TG_API_ID`, `TG_API_HASH`, and `TG_SESSION_STRING` to `.env`.
 
 ## 3. Whitelist Chats
 
@@ -68,7 +35,13 @@ Use Telegram usernames without `@` or numeric chat IDs.
 
 ## 4. First Run
 
-Always start with dry-run:
+Check your setup:
+
+```bash
+npm run doctor
+```
+
+Then start with dry-run:
 
 ```bash
 npm run listen -- --dry-run

@@ -57,6 +57,18 @@ npm install
 npm run demo
 ```
 
+## Self-Hosted Setup
+
+```bash
+cp .env.example .env
+npm run setup:telegram
+npm run setup:google
+npm run doctor
+npm run listen -- --dry-run
+```
+
+Only remove `--dry-run` after the caught events look right.
+
 ## Product Promise
 
 Less copying. Fewer missed calls. One calendar that stays current.

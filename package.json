@@ -29,7 +29,11 @@
     "demo": "node src/index.mjs --demo",
     "dry-run": "node src/index.mjs --demo --dry-run",
     "listen": "node src/index.mjs --listen",
-    "check": "node --check src/index.mjs && node --check src/config.mjs && node --check src/state.mjs && node --check src/parser/deterministic.mjs && node --check src/parser/llm.mjs && node --check src/adapters/google-calendar.mjs && node --check src/adapters/telegram-mtproto.mjs && node scripts/test-parser.mjs",
+    "setup:telegram": "node scripts/setup-telegram.mjs",
+    "setup:google": "node scripts/setup-google.mjs",
+    "doctor": "node scripts/doctor.mjs",
+    "doctor:offline": "node scripts/doctor.mjs --offline",
+    "check": "node --check src/index.mjs && node --check src/config.mjs && node --check src/state.mjs && node --check src/parser/deterministic.mjs && node --check src/parser/llm.mjs && node --check src/adapters/google-calendar.mjs && node --check src/adapters/telegram-mtproto.mjs && node --check scripts/env-file.mjs && node --check scripts/setup-telegram.mjs && node --check scripts/setup-google.mjs && node --check scripts/doctor.mjs && node scripts/test-parser.mjs",
     "test": "node scripts/test-parser.mjs"
   },
   "dependencies": {
