@@ -1,0 +1,25 @@
+{
+  "name": "telegram-ambient-tasks",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Turn Telegram messages into calendar events and tasks.",
+  "type": "module",
+  "bin": {
+    "telegram-ambient-tasks": "src/index.mjs"
+  },
+  "scripts": {
+    "demo": "node src/index.mjs --demo",
+    "dry-run": "node src/index.mjs --demo --dry-run",
+    "listen": "node src/index.mjs --listen",
+    "check": "node --check src/index.mjs && node --check src/config.mjs && node --check src/state.mjs && node --check src/parser/deterministic.mjs && node --check src/parser/llm.mjs && node --check src/adapters/google-calendar.mjs && node --check src/adapters/telegram-mtproto.mjs && node scripts/test-parser.mjs",
+    "test": "node scripts/test-parser.mjs"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "telegram": "^2.26.22"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
+
