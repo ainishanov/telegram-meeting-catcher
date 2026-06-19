@@ -1,15 +1,25 @@
 # Telegram Meeting Catcher
 
+![Telegram Meeting Catcher social preview](assets/og-image.png)
+
 **Never miss a meeting buried in Telegram.**
 
 Telegram Meeting Catcher watches selected Telegram chats and turns clear meeting
 plans into Google Calendar events. You keep chatting as usual. The calendar
 fills itself.
 
+![Telegram Meeting Catcher demo flow](assets/demo-flow.png)
+
 ## Why It Exists
 
 Important meeting plans get buried in Telegram. This catches them before you
 forget.
+
+## How It Works
+
+1. Watch only the Telegram chats you allow.
+2. Catch committed meeting plans with a date and time.
+3. Create confident Google Calendar events or send uncertain ones to review.
 
 ## What It Does
 
@@ -19,6 +29,26 @@ forget.
 - Sends uncertain events to local review state.
 - Dedupes by Telegram source message.
 - Runs deterministic parsing before optional AI fallback.
+
+## Example
+
+Input message:
+
+```text
+Can we do a demo next Monday at 11:00?
+```
+
+Dry-run output:
+
+```json
+{
+  "summary": "Demo call",
+  "startDate": "2026-06-22",
+  "startTime": "11:00",
+  "durationMinutes": 45,
+  "extractor": "deterministic"
+}
+```
 
 ## Quick Demo
 
@@ -30,6 +60,14 @@ npm run demo
 ## Product Promise
 
 Less copying. Fewer missed calls. One calendar that stays current.
+
+## Built For
+
+- founders who schedule in Telegram;
+- sales teams with Telegram-heavy leads;
+- consultants and agencies;
+- recruiters and operators;
+- anyone who keeps forgetting chat-based meeting plans.
 
 ## Safety First
 
@@ -85,8 +123,7 @@ Core description: **Telegram meetings become calendar events.**
 
 CTA: **Catch Meeting From Chat**
 
-OG image idea: a Telegram chat on the left, a clean calendar event on the right,
-with the large text: **Catch Meetings Before They Disappear**.
+Social preview: [assets/og-image.png](assets/og-image.png)
 
 ## Status
 
