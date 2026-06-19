@@ -17,10 +17,37 @@ cp .env.example .env
 npm run setup:telegram
 npm run setup:google
 npm run doctor
+npm run scan -- --limit 50
 npm run listen -- --dry-run
 ```
 
 Use dry-run until the audit output matches your expectations.
+
+Set `TMC_TIMEZONE` to your local IANA timezone before live calendar creation.
+Examples: `America/New_York`, `Europe/London`, `Asia/Dubai`.
+
+## Backfill Scan
+
+Use scan to check recent messages without starting the long-running listener.
+
+```bash
+npm run scan -- --limit 50
+```
+
+Scan is always dry-run. It reads only `TMC_ALLOWED_CHATS` and prints the events
+that would be created or sent to review.
+
+## Docker Personal Instance
+
+```bash
+cp .env.example .env
+npm run setup:telegram
+npm run setup:google
+docker compose up --build
+```
+
+The default Docker command runs with `--dry-run`. To go live, remove
+`--dry-run` from `docker-compose.yml` after scan output looks correct.
 
 ## Production Shape
 
@@ -29,8 +56,9 @@ Use dry-run until the audit output matches your expectations.
 3. Configure `TMC_ALLOWED_CHATS`.
 4. Connect Google Calendar OAuth with `npm run setup:google`.
 5. Run `npm run doctor`.
-6. Run `npm run listen -- --dry-run`.
-7. Remove `--dry-run` only after review state is clean.
+6. Run `npm run scan -- --limit 50`.
+7. Run `npm run listen -- --dry-run`.
+8. Remove `--dry-run` only after review state is clean.
 
 ## Commands
 
@@ -40,6 +68,7 @@ npm run check
 npm run setup:telegram
 npm run setup:google
 npm run doctor
+npm run scan -- --limit 50
 npm run listen -- --dry-run
 npm run review
 npm run confirm -- <review-id>

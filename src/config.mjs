@@ -19,7 +19,7 @@ function numberEnv(name, fallback, min, max) {
 
 export function loadConfig() {
   return {
-    timezone: process.env.TMC_TIMEZONE || 'Europe/Moscow',
+    timezone: process.env.TMC_TIMEZONE || 'UTC',
     stateDir: process.env.TMC_STATE_DIR || 'data',
     defaultDurationMinutes: numberEnv('TMC_DEFAULT_DURATION_MINUTES', 45, 10, 360),
     autoCreateMinConfidence: numberEnv('TMC_AUTO_CREATE_MIN_CONFIDENCE', 0.82, 0, 1),

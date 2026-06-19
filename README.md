@@ -1,5 +1,7 @@
 # Telegram Meeting Catcher
 
+[![CI](https://github.com/ainishanov/telegram-meeting-catcher/actions/workflows/ci.yml/badge.svg)](https://github.com/ainishanov/telegram-meeting-catcher/actions/workflows/ci.yml)
+
 ![Telegram Meeting Catcher social preview](assets/og-image.png)
 
 **Never miss a meeting buried in Telegram.**
@@ -64,10 +66,27 @@ cp .env.example .env
 npm run setup:telegram
 npm run setup:google
 npm run doctor
+npm run scan -- --limit 50
 npm run listen -- --dry-run
 ```
 
+Set `TMC_TIMEZONE` to your local IANA timezone before creating real calendar
+events, for example `America/New_York` or `Europe/London`.
+
 Only remove `--dry-run` after the caught events look right.
+
+## Docker Personal Instance
+
+```bash
+cp .env.example .env
+npm run setup:telegram
+npm run setup:google
+docker compose up --build
+```
+
+The Docker command starts in dry-run mode. Remove `--dry-run` from
+`docker-compose.yml` only after `npm run scan -- --limit 50` catches the right
+events.
 
 ## Review Flow
 
@@ -110,6 +129,8 @@ See [docs/PRIVACY.md](docs/PRIVACY.md).
 
 - [Telegram session setup](docs/SESSION_SETUP.md)
 - [Runbook](docs/RUNBOOK.md)
+- [Personal cloud architecture](docs/PERSONAL_CLOUD.md)
+- [Launch plan](docs/LAUNCH_PLAN.md)
 - [Security policy](SECURITY.md)
 
 ## Environment

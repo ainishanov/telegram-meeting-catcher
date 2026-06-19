@@ -19,6 +19,11 @@ await check('Node.js >= 20', async () => {
 
 await check('.env file exists', async () => '.env');
 
+await check('Timezone', async () => {
+  validateTimezone(config.timezone);
+  return config.timezone;
+});
+
 await check('Telegram API credentials', async () => {
   if (!config.telegram.apiId) throw new Error('TG_API_ID is missing');
   if (!config.telegram.apiHash) throw new Error('TG_API_HASH is missing');
@@ -113,3 +118,10 @@ function hasFlag(name) {
   return process.argv.includes(name);
 }
 
+function validateTimezone(timezone) {
+  try {
+    new Intl.DateTimeFormat('en-US', { timeZone: timezone }).format(new Date());
+  } catch {
+    throw new Error(`invalid IANA timezone: ${timezone}`);
+  }
+}

@@ -27,3 +27,7 @@ Never commit:
 The full user-account listener should be an advanced self-hosted mode until the
 product has a strong trust layer: encrypted sessions, clear device revocation
 instructions, audit logs, chat allowlists, and OAuth verification.
+
+The safer hosted path is a control plane that provisions isolated personal
+workers. Do not start with one shared multi-tenant listener for raw Telegram
+chat streams.

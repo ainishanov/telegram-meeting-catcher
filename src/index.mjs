@@ -5,7 +5,7 @@ import { loadConfig } from './config.mjs';
 import { loadState, saveState } from './state.mjs';
 import { extractEventsFromMessages, handleExtractedEvents } from './events.mjs';
 import { confirmPendingReview, formatPendingReview, listPendingReviews, skipPendingReview } from './review.mjs';
-import { listenTelegram } from './adapters/telegram-mtproto.mjs';
+import { listenTelegram, scanTelegram } from './adapters/telegram-mtproto.mjs';
 
 const args = new Set(process.argv.slice(2));
 const positional = process.argv.slice(2).filter((arg) => !arg.startsWith('--'));
@@ -18,6 +18,8 @@ if (positional[0] === 'review') {
   await confirmReview(positional[1]);
 } else if (positional[0] === 'skip') {
   skipReview(positional[1]);
+} else if (positional[0] === 'scan') {
+  await scanMessages();
 } else if (args.has('--demo')) {
   const messages = JSON.parse(await fs.readFile(new URL('../examples/messages.json', import.meta.url), 'utf8'));
   await processMessages(messages, { dryRun: true });
@@ -26,7 +28,7 @@ if (positional[0] === 'review') {
   await listenTelegram(config, (messages) => processMessages(messages, { dryRun }));
   await new Promise(() => {});
 } else {
-  console.log('Usage: telegram-meeting-catcher --demo | telegram-meeting-catcher --listen --dry-run | telegram-meeting-catcher review | telegram-meeting-catcher confirm <id> | telegram-meeting-catcher skip <id>');
+  console.log('Usage: telegram-meeting-catcher --demo | telegram-meeting-catcher scan --limit 50 | telegram-meeting-catcher --listen --dry-run | telegram-meeting-catcher review | telegram-meeting-catcher confirm <id> | telegram-meeting-catcher skip <id>');
 }
 
 async function processMessages(messages, options = {}) {
@@ -84,4 +86,18 @@ function skipReview(id) {
 
   saveState(stateFile, state);
   console.log(`Skipped ${result.event.reviewId}: ${result.event.summary}`);
+}
+
+async function scanMessages() {
+  const limit = readIntArg('--limit', 50);
+  const messages = await scanTelegram(config, { limit });
+  console.log(JSON.stringify({ type: 'scan_loaded_messages', count: messages.length, limit }, null, 2));
+  await processMessages(messages, { dryRun: true });
+}
+
+function readIntArg(name, fallback) {
+  const index = process.argv.indexOf(name);
+  if (index === -1 || index + 1 >= process.argv.length) return fallback;
+  const value = Number.parseInt(process.argv[index + 1], 10);
+  return Number.isFinite(value) && value > 0 ? value : fallback;
 }

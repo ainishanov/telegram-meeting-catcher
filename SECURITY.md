@@ -29,5 +29,5 @@ Email the maintainer or open a minimal private advisory with:
 - Run dry-run first.
 - Keep `.env` and `data/` out of git.
 - Use a dedicated Telegram account for testing.
+- Prefer one isolated personal instance per user.
 - Revoke old Telegram sessions from `Settings -> Devices`.
-

@@ -28,6 +28,7 @@
   "scripts": {
     "demo": "node src/index.mjs --demo",
     "dry-run": "node src/index.mjs --demo --dry-run",
+    "scan": "node src/index.mjs scan",
     "listen": "node src/index.mjs --listen",
     "review": "node src/index.mjs review",
     "confirm": "node src/index.mjs confirm",

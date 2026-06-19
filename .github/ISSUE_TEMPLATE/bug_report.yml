@@ -1,0 +1,37 @@
+name: Bug report
+description: Report a reproducible problem without sharing secrets.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not paste Telegram session strings, OAuth tokens, private chats, or `.env` files.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the problem and the result you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: Use redacted examples only.
+      placeholder: |
+        1. Run ...
+        2. Send a message like ...
+        3. See ...
+    validations:
+      required: true
+  - type: input
+    id: node
+    attributes:
+      label: Node.js version
+      placeholder: "22.4.0"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Redacted logs
+      render: shell

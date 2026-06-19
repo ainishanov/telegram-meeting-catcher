@@ -8,6 +8,9 @@ export async function createCalendarEvent(event, config) {
   }
 
   const token = await getAccessToken(config);
+  const duplicate = await findCalendarDuplicate(token, event, config);
+  if (duplicate) return { ...duplicate, duplicate: true };
+
   const calendarId = encodeURIComponent(config.google.calendarId || 'primary');
   const body = buildGoogleEvent(event, config);
   const response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events`, {
@@ -23,6 +26,24 @@ export async function createCalendarEvent(event, config) {
     throw new Error(data.error?.message || `Google Calendar failed: ${response.status}`);
   }
   return data;
+}
+
+export async function findCalendarDuplicate(token, event, config) {
+  if (!event.sourceId) return null;
+  const calendarId = encodeURIComponent(config.google.calendarId || 'primary');
+  const params = new URLSearchParams({
+    privateExtendedProperty: `telegramMeetingCatcherSource=${event.sourceId}`,
+    singleEvents: 'true',
+    maxResults: '1',
+  });
+  const response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?${params.toString()}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.error?.message || `Google Calendar duplicate check failed: ${response.status}`);
+  }
+  return data.items?.[0] || null;
 }
 
 export function buildGoogleEvent(event, config) {

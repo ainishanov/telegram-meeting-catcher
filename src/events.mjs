@@ -31,6 +31,11 @@ export async function handleExtractedEvents(events, { config, state, dryRun = fa
     }
 
     if (event.confidence < config.autoCreateMinConfidence) {
+      if (dryRun) {
+        const reviewId = event.reviewId || shortId(event.sourceId);
+        console.log(JSON.stringify({ type: 'dry_pending_review', reviewId, event }, null, 2));
+        continue;
+      }
       pendingReview(state, event);
       changed = true;
       console.log(JSON.stringify({ type: 'pending_review', reviewId: event.reviewId, event }));
@@ -53,7 +58,11 @@ export async function createEventAndRecord(state, event, config) {
   const created = await createCalendarEvent(event, config);
   state.created[event.sourceId] = buildCreatedRecord(event, created);
   delete state.pendingReview[event.sourceId];
-  console.log(JSON.stringify({ type: 'calendar_event_created', sourceId: event.sourceId, eventId: created.id }));
+  console.log(JSON.stringify({
+    type: created.duplicate ? 'calendar_event_duplicate' : 'calendar_event_created',
+    sourceId: event.sourceId,
+    eventId: created.id,
+  }));
   return created;
 }
 
@@ -82,7 +91,7 @@ function buildCreatedRecord(event, created) {
     htmlLink: created.htmlLink,
     summary: event.summary,
     start: `${event.startDate} ${event.startTime}`,
+    duplicate: Boolean(created.duplicate),
     createdAt: new Date().toISOString(),
   };
 }
-
